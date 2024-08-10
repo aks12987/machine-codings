@@ -1,0 +1,21 @@
+// src/App.tsx
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import { Home } from "./components/Home";
+import { RegisterModal } from "./components/Register";
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<RegisterModal />} />
+        {/* <Route path="/login" element={<LoginModal />} /> */}
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
