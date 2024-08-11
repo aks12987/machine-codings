@@ -1,22 +1,50 @@
-// src/pages/Home.tsx
 import React from "react";
+import userAvatar from "../../assets/login.svg";
+import chat from "../../assets/chat.svg";
+import { Post } from "../Post";
+import { CreatePost } from "../Post/CreatePostSection";
 
-export const Home = () => {
+const Home = () => {
   return (
-    <div className="p-8 bg-gray-900 text-white">
-      <h1 className="text-3xl font-bold">Hello Jane</h1>
-      <p>
-        How are you feeling today? Would you like to share something with the
-        community? 😊
-      </p>
-      <div className="mt-4">
-        <textarea
-          className="w-full p-3 text-black rounded"
-          placeholder="How are you feeling today?"
-        />
-        <button className="mt-2 p-2 bg-blue-600 rounded">Post</button>
+    <div className="flex items-center justify-center min-h-screen bg-[#121212] text-[#F1F1F1]">
+      <div className="w-full max-w-3xl p-8">
+        <h1
+          className="font-inter"
+          style={{
+            fontSize: "28px",
+            fontWeight: 500,
+            lineHeight: "33.89px",
+            textAlign: "left",
+            color: "rgba(197, 199, 202, 1)",
+          }}
+        >
+          Hello Jane
+        </h1>
+        <p
+          className="mt-4 max-w-[580px]"
+          style={{
+            fontSize: "16px",
+            fontWeight: 400,
+            lineHeight: "24px",
+            textAlign: "left",
+            color: "rgba(127, 128, 132, 1)",
+          }}
+        >
+          How are you doing today? Would you like to share something with the
+          community?{" "}
+          <span role="img" aria-label="emoji">
+            🤗
+          </span>
+        </p>
+
+        {/* Create Post Section */}
+        <CreatePost />
+
+        {/* Post List */}
+        <Post />
       </div>
-      {/* Implement the feed section based on your data structure */}
     </div>
   );
 };
+
+export default Home;

@@ -1,7 +1,6 @@
-// src/pages/Login.tsx
 import React from "react";
-import loginLogo from "../../assets/login.svg"; // Import the logo SVG
-import eyeIcon from "../../assets/eye.svg"; // Import the eye SVG
+import loginLogo from "../../assets/login.svg";
+import eyeIcon from "../../assets/eye.svg";
 
 const Login = () => {
   return (
