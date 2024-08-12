@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
+      blur: {
+        "2px": "2px",
+      },
     },
   },
   plugins: [],

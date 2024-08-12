@@ -1,11 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import loginLogo from "../../assets/login.svg";
 import eyeIcon from "../../assets/eye.svg";
 
-const Login = () => {
+const Login: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/home");
+  };
+
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#121212]">
-      {/* Logo at the top */}
       <img src={loginLogo} alt="Login Logo" className="h-12 mb-[50px]" />
 
       <div
@@ -40,7 +47,7 @@ const Login = () => {
           >
             Log into your account
           </h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label
                 className="block mb-[10px]"
@@ -60,8 +67,8 @@ const Login = () => {
                 placeholder="Enter your email or username"
                 className="w-full p-3 rounded-lg border border-[#4d4d4d]"
                 style={{
-                  backgroundColor: "#333333",
-                  color: "rgba(197, 199, 202, 1)",
+                  backgroundColor: "transparent",
+                  color: "#7F8084",
                 }}
               />
             </div>
@@ -102,8 +109,8 @@ const Login = () => {
                   placeholder="Enter your password"
                   className="w-full p-3 rounded-lg border border-[#4d4d4d]"
                   style={{
-                    backgroundColor: "#333333",
-                    color: "rgba(197, 199, 202, 1)",
+                    backgroundColor: "transparent",
+                    color: "#7F8084",
                   }}
                 />
                 <button

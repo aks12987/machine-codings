@@ -1,4 +1,10 @@
-export const CreatePost = () => {
+import React from "react";
+
+interface CreatePostProps {
+  onPostClick: () => void;
+}
+
+export const CreatePost: React.FC<CreatePostProps> = ({ onPostClick }) => {
   return (
     <div
       className="mt-4 p-6 bg-[#1C1C1E] rounded-lg shadow-lg"
@@ -28,8 +34,16 @@ export const CreatePost = () => {
           />
         </div>
       </div>
-      <div className="flex justify-end items-center">
-        <button className="bg-[#4A96FF] text-white py-2 px-4 rounded-md mt-4 w-[110px]">
+      <div className="flex justify-end mt-4">
+        <button
+          onClick={onPostClick}
+          className="bg-[#4A96FF] text-white py-2 px-6 rounded-lg"
+          style={{
+            fontSize: "16px",
+            fontWeight: 500,
+            lineHeight: "24px",
+          }}
+        >
           Post
         </button>
       </div>

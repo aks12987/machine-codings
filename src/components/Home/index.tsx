@@ -1,13 +1,38 @@
-import React from "react";
-import userAvatar from "../../assets/login.svg";
-import chat from "../../assets/chat.svg";
+import React, { useState } from "react";
 import { Post } from "../Post";
 import { CreatePost } from "../Post/CreatePostSection";
+import Register from "../Register";
 
-const Home = () => {
+const HomePage: React.FC = () => {
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handlePostClick = () => {
+    setShowRegisterModal(true);
+  };
+
+  const handleLoginClick = () => {
+    setShowRegisterModal(false);
+    setShowLoginModal(true);
+  };
+
+  const handleRegisterClick = () => {
+    setShowRegisterModal(true);
+    setShowLoginModal(false);
+  };
+
+  const handleCloseModal = () => {
+    setShowRegisterModal(false);
+    setShowLoginModal(false);
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#121212] text-[#F1F1F1]">
-      <div className="w-full max-w-3xl p-8">
+    <div className="relative flex items-center justify-center min-h-screen bg-[#121212] text-[#F1F1F1]">
+      <div
+        className={`w-full max-w-3xl p-8 ${
+          showRegisterModal || showLoginModal ? "blur-2px" : ""
+        }`}
+      >
         <h1
           className="font-inter"
           style={{
@@ -38,13 +63,33 @@ const Home = () => {
         </p>
 
         {/* Create Post Section */}
-        <CreatePost />
+        <CreatePost onPostClick={handlePostClick} />
 
         {/* Post List */}
         <Post />
       </div>
+
+      {/* Register Modal */}
+      {showRegisterModal && (
+        <Register
+          onClose={handleCloseModal}
+          onLoginClick={handleLoginClick}
+          handleRegisterClick={handleRegisterClick}
+          showRegisterModal
+        />
+      )}
+
+      {/* Login Modal */}
+      {showLoginModal && (
+        <Register
+          onClose={handleCloseModal}
+          onLoginClick={handleLoginClick}
+          handleRegisterClick={handleRegisterClick}
+          showLoginModal
+        />
+      )}
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
